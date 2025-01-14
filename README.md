@@ -3,7 +3,7 @@ Toy dataset for computer vision education and experimentation
 
 ## The Board
 
-![The Board](./Board.png "The Board")
+![The Board](./README_Board.png "The Board")
 
 ## The Ships
 
