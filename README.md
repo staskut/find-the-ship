@@ -3,11 +3,15 @@ Toy dataset for computer vision education and experimentation
 
 ## The Board
 
+The board consists of 28 cells or locations, with rows ranging from 1 through 7 and columns ranging from A through D. Each non-empty image sample contains exactly one ship, and the ship may be facing either West (towards the left of the board) or East (towards the right of the board). The following sample image shows an empty board with each cell labeled. 
+
 <div align="center">
   <img src="./README_Board.png" alt="The Board" title="The Board">
 </div>
 
 ## The Ships
+
+Each non-empty image sample contains exactly one of six possible ships, facing either West (towards the left of the board) or East (towards the right of the board). The following table displays sample images of each ship. 
 
 <table align="center">
   <tr>
