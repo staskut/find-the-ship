@@ -4,12 +4,19 @@ Toy dataset for computer vision education and experimentation
 
 <table align="center">
   <tr>
-    <td><img src="./set-A_train/20171105_185533_Location-2D_Heading-West_Ship-Freighter.jpg" width="320"></td>
-    <td><img src="./set-A_train/20171105_190017_Location-4C_Heading-East_Ship-Cruiser-3.jpg" width="320"></td>
+    <td><img src="./set-A_train/20171105_185533_Location-2D_Heading-West_Ship-Freighter.jpg" width="240"></td>
+    <td><img src="./set-A_train/20171105_190017_Location-4C_Heading-East_Ship-Cruiser-3.jpg" width="240"></td>
+  </tr>
+  <td><img src="./set-A_train/20171105_190746_Location-1C_Heading-West_Ship-Cruiser-2.jpg" width="240"></td>
+  <tr>
+    <td><img src="./set-A_train/20171105_190339_Location-3C_Heading-East_Ship-Fishing-2.jpg" width="240"></td>
+    <td><img src="./set-A_train/20171105_190437_Empty.jpg" width="240"></td>
+    <td><img src="./set-A_train/20171105_214355_Location-6A_Heading-East_Ship-Fishing-1.jpg" width="240"></td>
   </tr>
   <tr>
-    <td><img src="./set-A_train/20171105_190746_Location-1C_Heading-West_Ship-Cruiser-2.jpg" width="320"></td>
-    <td><img src="./set-A_train/20171105_190339_Location-3C_Heading-East_Ship-Fishing-2.jpg" width="320"></td>
+    <td><img src="./set-A_train/20171105_214605_Location-3A_Heading-East_Ship-Cruiser-1.jpg" width="240"></td>
+    <td><img src="./set-A_train/20171106_184157_Location-4A_Heading-West_Ship-Cruiser-2.jpg" width="240"></td>
+    <td><img src="./set-A_train/20171106_192310_Location-7C_Heading-West_Ship-Freighter.jpg" width="240"></td>
   </tr>
 </table>
 
