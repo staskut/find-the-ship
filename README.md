@@ -20,7 +20,7 @@ Toy dataset for computer vision education and experimentation
   </tr>
 </table>
 
-This is a multi-task classification dataset. It consists of 2000+ images of a board representing a ficticious ocean area where 6 models of ships operate. Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
+This is a multi-task classification dataset. It consists of 2035 images of a board representing a ficticious ocean area where 6 models of ships operate. Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
 * **1.** Determining whether or not the image contains a ship.
 * **2.** If the image contains a ship:
   * **A.** Determine the ship's location.
@@ -124,7 +124,10 @@ The following table describes the values taken by the placeholders.
   </tr>
 </table>
 
+<p>&nbsp;</p>
+
 The data split is as follows:
 * `set-A_train/` contains 1635 image samples for training
 * `set-B_test/` contains 400 image samples for testing (validation)
 
+Needless to say, you may choose any other data split you find useful for your purposes. 
