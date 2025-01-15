@@ -69,3 +69,42 @@ Each non-empty image sample contains exactly one of six possible ships, facing e
     <td>West</td>
   </tr>
 </table>
+
+## The Image Labels
+
+Each non-empty image sample contains its labels embedded in its respective filename. The filename format is:
+
+<div align="center">
+  <code>
+    YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg
+  </code>
+</div>
+
+The following table shows the values taken by the placeholders.
+
+<table align="center">
+  <tr>
+    <th>Placeholder</th>
+    <th>Values</th>
+  </tr>
+  <tr>
+    <td><b><code>YYYYMMDD</code></b></td>
+    <td>Image sample creation date</td>
+  </tr>
+  <tr>
+    <td><b><code>HHMMSS</code></b></td>
+    <td>Image sample creation time</td>
+  </tr>
+  <tr>
+    <td><b><code>[LOC]</code></b></td>
+    <td>Ship location row and column</td>
+  </tr>
+  <tr>
+    <td><b><code>[HEADING]</code></b></td>
+    <td>Ship heading: West (left) or East (right)</td>
+  </tr>
+  <tr>
+    <td><b><code>[SHIP]</code></b></td>
+    <td>Ship: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter</td>
+  </tr>
+</table>
