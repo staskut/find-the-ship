@@ -85,6 +85,12 @@ Each non-empty image sample contains its labels embedded in its respective filen
   <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg</code>
 </div>
 
+On the other hand, empty image sample filenames contain only creation date and time.
+
+<div align="center">
+  <code>YYYYMMDD_HHMMSS_Empty.jpg</code>
+</div>
+
 <p>&nbsp;</p>
 
 The following table describes the values taken by the placeholders.
@@ -115,9 +121,3 @@ The following table describes the values taken by the placeholders.
     <td>Ship model: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter.</td>
   </tr>
 </table>
-
-Finally, empty image sample filenames contain only creation date and time.
-
-<div align="center">
-  <code>YYYYMMDD_HHMMSS_Empty.jpg</code>
-</div>
