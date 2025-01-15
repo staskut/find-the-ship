@@ -83,9 +83,7 @@ Each non-empty image sample contains its labels embedded in its respective filen
 
 <div align="center">
   <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg</code>
-</div>
-
-<br/><br/>
+</div>  
 
 The following table describes the values taken by the placeholders.
 
