@@ -75,17 +75,7 @@ Each non-empty image sample contains exactly one of six possible ships, facing e
 Each non-empty image sample contains its labels embedded in its respective filename according to the following format.
 
 <div align="center">
-  <code>
-    YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg
-  </code>
-</div>
-
-Empty image samples only contain creation date and time data. 
-
-<div align="center">
-  <code>
-    YYYYMMDD_HHMMSS_Empty.jpg
-  </code>
+  <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg</code>
 </div>
 
 The following table describes the values taken by the placeholders.
@@ -97,22 +87,28 @@ The following table describes the values taken by the placeholders.
   </tr>
   <tr>
     <td><b><code>YYYYMMDD</code></b></td>
-    <td>Image sample creation date</td>
+    <td>Image sample creation date in YYYY-MM-DD format.</td>
   </tr>
   <tr>
     <td><b><code>HHMMSS</code></b></td>
-    <td>Image sample creation time</td>
+    <td>Image sample creation time in HH:MM:SS format.</td>
   </tr>
   <tr>
     <td><b><code>[LOC]</code></b></td>
-    <td>Ship location row and column</td>
+    <td>Ship location row (1,2,3,4,5,6,7) and column (A,B,C,D).</td>
   </tr>
   <tr>
     <td><b><code>[HEADING]</code></b></td>
-    <td>Ship heading: West (left) or East (right)</td>
+    <td>Ship heading: West (left) or East (right).</td>
   </tr>
   <tr>
     <td><b><code>[SHIP]</code></b></td>
-    <td>Ship: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter</td>
+    <td>Ship: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter.</td>
   </tr>
 </table>
+
+Finally, empty image sample filenames contain only creation date and time.
+
+<div align="center">
+  <code>YYYYMMDD_HHMMSS_Empty.jpg</code>
+</div>
