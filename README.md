@@ -20,6 +20,13 @@ Toy dataset for computer vision education and experimentation
   </tr>
 </table>
 
+This is a multi-task classification dataset. It consists of 2000+ images of a board representing a ficticious ocean area where 6 models of ships operate. Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
+* (1) Determining whether or not the image contains a ship.
+* If the image contains a ship:
+  * (2A) Determine the ship's location.
+  * (2B) Determine the ship's heading.
+  * (2C) Determine the ship's model.
+
 ## The Board
 
 The board consists of 28 locations, with rows ranging from 1 through 7 and columns ranging from A through D. Each non-empty image sample contains exactly one ship, and the ship may be facing either West (towards the left of the board) or East (towards the right of the board). The following image sample shows an empty board with each location labeled. 
@@ -30,12 +37,12 @@ The board consists of 28 locations, with rows ranging from 1 through 7 and colum
 
 ## The Ships
 
-Each non-empty image sample contains exactly one of six possible ships, facing either West (towards the left of the board) or East (towards the right of the board). The following table displays sample images of each ship. 
+Each non-empty image sample contains exactly one of six possible ship models, facing either West (towards the left of the board) or East (towards the right of the board). The following table displays sample images of each ship model. 
 
 <table align="center">
   <tr>
     <th>Sample Image</th>
-    <th>Ship</th>
+    <th>Ship Model</th>
     <th>Shown Facing</th>
   </tr>
   <tr>
@@ -78,6 +85,7 @@ Each non-empty image sample contains its labels embedded in its respective filen
   <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg</code>
 </div>
 
+
 The following table describes the values taken by the placeholders.
 
 <table align="center">
@@ -103,7 +111,7 @@ The following table describes the values taken by the placeholders.
   </tr>
   <tr>
     <td><b><code>[SHIP]</code></b></td>
-    <td>Ship: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter.</td>
+    <td>Ship model: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter.</td>
   </tr>
 </table>
 
