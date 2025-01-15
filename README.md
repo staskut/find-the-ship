@@ -21,11 +21,11 @@ Toy dataset for computer vision education and experimentation
 </table>
 
 This is a multi-task classification dataset. It consists of 2000+ images of a board representing a ficticious ocean area where 6 models of ships operate. Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
-* (1) Determining whether or not the image contains a ship.
-* If the image contains a ship:
-  * (2A) Determine the ship's location.
-  * (2B) Determine the ship's heading.
-  * (2C) Determine the ship's model.
+* **1.** Determining whether or not the image contains a ship.
+* **2.** If the image contains a ship:
+  * **A.** Determine the ship's location.
+  * **B.** Determine the ship's heading.
+  * **C.** Determine the ship's model.
 
 ## The Board
 
@@ -85,6 +85,8 @@ Each non-empty image sample contains its labels embedded in its respective filen
   <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg</code>
 </div>
 
+<p>&nbsp;</p>
+
 On the other hand, empty image sample filenames contain only creation date and time.
 
 <div align="center">
@@ -121,3 +123,8 @@ The following table describes the values taken by the placeholders.
     <td>Ship model: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter.</td>
   </tr>
 </table>
+
+The data split is as follows:
+* `set-A_train/` contains 1635 image samples for training
+* `set-B_test/` contains 400 image samples for testing (validation)
+
