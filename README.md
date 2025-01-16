@@ -27,7 +27,13 @@ This is a multi-task classification dataset. It consists of 2035 images of a boa
   * **B.** Determine the ship's heading.
   * **C.** Determine the ship's model.
 
-## The Board
+The data split is as follows:
+* `set-A_train/` contains 1635 image samples for training
+* `set-B_test/` contains 400 image samples for testing (validation)
+
+Needless to say, you may choose any other data split you find useful for your purposes. 
+
+## Board
 
 The board consists of 28 locations, with rows ranging from 1 through 7 and columns ranging from A through D. Each non-empty image sample contains exactly one ship, and the ship may be facing either West (towards the left of the board) or East (towards the right of the board). The following image sample shows an empty board with each location labeled. 
 
@@ -35,7 +41,7 @@ The board consists of 28 locations, with rows ranging from 1 through 7 and colum
   <img src="./README_Board.png" alt="The Board" title="The Board">
 </div>
 
-## The Ships
+## Ship Models
 
 Each non-empty image sample contains exactly one of six possible ship models, facing either West (towards the left of the board) or East (towards the right of the board). The following table displays sample images of each ship model. 
 
@@ -77,12 +83,12 @@ Each non-empty image sample contains exactly one of six possible ship models, fa
   </tr>
 </table>
 
-## The Image Labels
+## Image Labels
 
 Each non-empty image sample contains its labels embedded in its respective filename according to the following format.
 
 <div align="center">
-  <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEADING]_Ship-[SHIP].jpg</code>
+  <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEAD]_Ship-[SHIP].jpg</code>
 </div>
 
 <p>&nbsp;</p>
@@ -115,7 +121,7 @@ The following table describes the values taken by the placeholders.
     <td>Ship location row (1,2,3,4,5,6,7) and column (A,B,C,D).</td>
   </tr>
   <tr>
-    <td><b><code>[HEADING]</code></b></td>
+    <td><b><code>[HEAD]</code></b></td>
     <td>Ship heading: West (left) or East (right).</td>
   </tr>
   <tr>
@@ -124,10 +130,92 @@ The following table describes the values taken by the placeholders.
   </tr>
 </table>
 
-<p>&nbsp;</p>
+If you don't want to write a parser to read the labels from the image filenames you can use the `image_labels.csv` file inside each dataset directory. It contains a table where each row corresponds to an image sample. The columns are as follows. 
 
-The data split is as follows:
-* `set-A_train/` contains 1635 image samples for training
-* `set-B_test/` contains 400 image samples for testing (validation)
+<table align="center">
+  <tr>
+    <th>Column</th>
+    <th>Values</th>
+  </tr>
+  <tr>
+    <td><b>Filename</b></td>
+    <td>Filename as is.</td>
+  </tr>
+  <tr>
+    <td><b>Is_nonempty</b></td>
+    <td>1 if the image sample is non-empty; 0 otherwise.</td>
+  </tr>
+  <tr>
+    <td><b>Location</b></td>
+    <td>If the image is non-empty, ship location row (1,2,3,4,5,6,7) and column (A,B,C,D); blank otherwise.</td>
+  </tr>
+  <tr>
+    <td><b>Heading</b></td>
+    <td>If the image is non-empty, ship heading (West or East); blank otherwise.</td>
+  </tr>
+  <tr>
+    <td><b>Ship</b></td>
+    <td>If the image is non-empty, ship model: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter; blank otherwise.</td>
+  </tr>
+</table>
 
-Needless to say, you may choose any other data split you find useful for your purposes. 
+The following is an example of the data contained in the `image_labels.csv` files.
+
+<table align="center">
+    <tr>
+        <th>Filename</th>
+        <th>Is_nonempty</th>
+        <th>Location</th>
+        <th>Heading</th>
+        <th>Ship</th>
+    </tr>
+    <tr>
+        <td>20171105_185402_Empty.jpg</td>
+        <td>0</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20171105_185419_Location-1B_Heading-East_Ship-Fishing-1.jpg</td>
+        <td>1</td>
+        <td>1B</td>
+        <td>East</td>
+        <td>Fishing-1</td>
+    </tr>
+    <tr>
+        <td>20171105_185451_Location-4C_Heading-East_Ship-Cruiser-1.jpg</td>
+        <td>1</td>
+        <td>4C</td>
+        <td>East</td>
+        <td>Cruiser-1</td>
+    </tr>
+    <tr>
+        <td>20171105_185533_Location-2D_Heading-West_Ship-Freighter.jpg</td>
+        <td>1</td>
+        <td>2D</td>
+        <td>West</td>
+        <td>Freighter</td>
+    </tr>
+    <tr>
+        <td>20171210_171214_Location-1B_Heading-West_Ship-Cruiser-3.jpg</td>
+        <td>1</td>
+        <td>1B</td>
+        <td>West</td>
+        <td>Cruiser-3</td>
+    </tr>
+    <tr>
+        <td>20171210_171245_Empty.jpg</td>
+        <td>0</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20171210_171343_Location-6A_Heading-East_Ship-Cruiser-2.jpg</td>
+        <td>1</td>
+        <td>6A</td>
+        <td>East</td>
+        <td>Cruiser-2</td>
+    </tr>
+</table>
