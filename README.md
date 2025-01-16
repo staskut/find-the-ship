@@ -20,7 +20,7 @@ Toy dataset for computer vision education and experimentation
   </tr>
 </table>
 
-This is a multi-task classification dataset. It consists of 2035 images of a board representing a ficticious ocean area where 6 models of ships operate. Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
+This is a multi-task classification dataset I made for fun in late 2017 using a cheap webcam, balsa wood and paint. It consists of 2035 images of a board representing a ficticious ocean area where 6 models of ships operate. Every image is 640 x 480 pixels with three color channels (RGB). Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
 * **1.** Determining whether or not the image contains a ship.
 * **2.** If the image contains a ship:
   * **A.** Determine the ship's location.
@@ -130,6 +130,8 @@ The following table describes the values taken by the placeholders.
   </tr>
 </table>
 
+<p>&nbsp;</p>
+
 If you don't want to write a parser to read the labels from the image filenames you can use the `image_labels.csv` file inside each dataset directory. It contains a table where each row corresponds to an image sample. The columns are as follows. 
 
 <table align="center">
@@ -219,3 +221,7 @@ The following is an example of the data contained in the `image_labels.csv` file
         <td>Cruiser-2</td>
     </tr>
 </table>
+
+## Examples
+
+You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecrated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written using Keras, which you can find in the `detectorcnn.py` script. 
