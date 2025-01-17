@@ -132,7 +132,7 @@ The following table describes the values taken by the placeholders.
 
 <p>&nbsp;</p>
 
-If you don't want to write a parser to read the labels from the image filenames you can use the `image_labels.csv` file inside each dataset directory. It contains a table where each row corresponds to an image sample. The columns are as follows. 
+If you don't want to write a parser to read the labels from the image filenames you can use the `load_samples` function in `/examples/utilities.py`. Alternatively, you may also use the `image_labels.csv` file inside each dataset directory, which contain tables where each row corresponds to an image sample. The columns are as follows. 
 
 <table align="center">
   <tr>
@@ -224,4 +224,10 @@ The following is an example of the data contained in the `image_labels.csv` file
 
 ## Examples
 
-You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecrated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written using Keras, which you can find in the `detectorcnn.py` script. 
+You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find in the `/examples/detectorcnn.py` script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. 
+
+### Tricks and Challenges
+
+* You can use the `load_samples` function in `/examples/utilities.py` to populate the input and output tensors. Note that the input images are loaded in greyscale, as I found it was not necessary to use the color channels. 
+* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart for me (as a human). During the dataset construction I found that I had to write numbers 1 and 2 at the bottom of each wooden model to tell them apart. Hence, the dataset may contain be a few image samples of with label Fishing-1 that correspond to Fishing-2, and vice-versa. Nevertheless, the `DetectorCNN` model managed to predict the correct ship model most of the time. 
+* The heading of Cruiser-2 is sometimes hard to tell because of the geometry of the model.
