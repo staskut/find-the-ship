@@ -20,9 +20,9 @@ Toy dataset for computer vision education and experimentation
   </tr>
 </table>
 
-This is a multi-task classification dataset I made for fun in late 2017 using a cheap webcam, wood and paint. It consists of 2035 images of a board representing a ficticious dataset of satellite images of an ocean area where 6 models of ships operate. Every image is 640 x 480 pixels with three color channels (RGB). Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
-* **1.** Determining whether or not the image contains a ship.
-* **2.** If the image contains a ship:
+This is a multi-task classification dataset I made for fun in late 2017 using a cheap webcam, wood, glue, paint, yarn and scotch tape. It consists of 2035 images of a board representing a ficticious ocean area where 6 ship models operate. Every image is 640 x 480 pixels with three color channels (RGB). Each non-empty image sample contains exactly one scaled model of a ship with a particular location and heading. The tasks are:
+* **1.** Determine whether or not the image is non-empty (i.e., contains a ship).
+* **2.** If the image is non-empty:
   * **A.** Determine the ship's location.
   * **B.** Determine the ship's heading.
   * **C.** Determine the ship's model.
@@ -190,3 +190,7 @@ A couple tips:
 Some of the challenges of this dataset:
 * The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples mislabeled as Fishing-1 that actually correspond to Fishing-2, and vice-versa. Nevertheless, my `DetectorCNN` model managed to predict the correct ship model most of the time.
 * The heading of Cruiser-2 is sometimes hard to tell because of the geometry of the model.
+
+## Contact
+
+For suggestions, comments or questions you can email me at `luis.i.reyes.castro@gmail.com`. In case you download this dataset from Kaggle, you can find the original repository [here](https://github.com/luis-i-reyes-castro/find-the-ship).
