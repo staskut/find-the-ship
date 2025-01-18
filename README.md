@@ -52,6 +52,11 @@ Each non-empty image sample contains exactly one of six possible ship models, fa
     <th>Shown Facing</th>
   </tr>
   <tr>
+    <td><img src="./README_Cruiser-1.jpg" alt="Cruiser-1" title="Cruiser-1" width="160"></td>
+    <td><b>Cruiser-1</b></td>
+    <td>West</td>
+  </tr>
+  <tr>
     <td><img src="./README_Cruiser-2.jpg" alt="Cruiser-2" title="Cruiser-2" width="160"></td>
     <td><b>Cruiser-2</b></td>
     <td>East</td>
