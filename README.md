@@ -20,7 +20,7 @@ Toy dataset for computer vision education and experimentation
   </tr>
 </table>
 
-This is a multi-task classification dataset I made for fun in late 2017 using a cheap webcam, balsa wood and paint. It consists of 2035 images of a board representing a ficticious ocean area where 6 models of ships operate. Every image is 640 x 480 pixels with three color channels (RGB). Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
+This is a multi-task classification dataset I made for fun in late 2017 using a cheap webcam, wood and paint. It consists of 2035 images of a board representing a ficticious dataset of satellite images of an ocean area where 6 models of ships operate. Every image is 640 x 480 pixels with three color channels (RGB). Each non-empty image sample contains one scaled model of a ship with a particular location and heading. The tasks are:
 * **1.** Determining whether or not the image contains a ship.
 * **2.** If the image contains a ship:
   * **A.** Determine the ship's location.
@@ -179,10 +179,14 @@ Alternatively, you can also write a parser script to read the image labels direc
 
 ## Examples
 
-You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the `DetectorCNN` class in the `/examples/detectorcnn.py` script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights, so sorry about that.
+You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the `DetectorCNN` class in the `/examples/detectorcnn.py` script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights and to report the best model accuracy, so sorry about that.
 
 ## Tips and Challenges
 
-* You can use the `load_samples` function in `/examples/utilities.py` to populate the input and output tensors. Note that the input images are loaded in greyscale, as I found it was not necessary to use the color channels.
-* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples labeled as Fishing-1 that correspond to Fishing-2, and vice-versa. Nevertheless, the `DetectorCNN` model managed to predict the correct ship model most of the time.
+A couple tips:
+* You can crop the original images to remove irrelevant areas by throwing away all pixels with rows outside the range 60 to 430 or columns outside the range 40 to 600. You can find these ranges declared as constants in lines 15-18 of the `/examples/dataset_constants.py` script.
+* You do not need to use the color channels to build a decent model, or at least I did not. You can see this in line 120 of the `load_samples` function in `/examples/utilities.py`, where I loaded the images in grayscale using Scipy's `imread` function with `flatten = True`. Be aware that Scipy has deprecated `imread`, which is now part of the `imageio` package.
+
+Some of the challenges of this dataset:
+* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples mislabeled as Fishing-1 that actually correspond to Fishing-2, and vice-versa. Nevertheless, my `DetectorCNN` model managed to predict the correct ship model most of the time.
 * The heading of Cruiser-2 is sometimes hard to tell because of the geometry of the model.
