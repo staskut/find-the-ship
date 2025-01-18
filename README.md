@@ -85,54 +85,7 @@ Each non-empty image sample contains exactly one of six possible ship models, fa
 
 ## Image Labels
 
-Each non-empty image sample contains its labels embedded in its respective filename according to the following format.
-
-<div align="center">
-  <code>YYYYMMDD_HHMMSS_Location-[LOC]_Heading-[HEAD]_Ship-[SHIP].jpg</code>
-</div>
-
-<p>&nbsp;</p>
-
-On the other hand, empty image sample filenames contain only creation date and time.
-
-<div align="center">
-  <code>YYYYMMDD_HHMMSS_Empty.jpg</code>
-</div>
-
-<p>&nbsp;</p>
-
-The following table describes the values taken by the placeholders.
-
-<table align="center">
-  <tr>
-    <th>Placeholder</th>
-    <th>Values</th>
-  </tr>
-  <tr>
-    <td><b><code>YYYYMMDD</code></b></td>
-    <td>Image sample creation date in YYYY-MM-DD format.</td>
-  </tr>
-  <tr>
-    <td><b><code>HHMMSS</code></b></td>
-    <td>Image sample creation time in HH:MM:SS format.</td>
-  </tr>
-  <tr>
-    <td><b><code>[LOC]</code></b></td>
-    <td>Ship location row (1,2,3,4,5,6,7) and column (A,B,C,D).</td>
-  </tr>
-  <tr>
-    <td><b><code>[HEAD]</code></b></td>
-    <td>Ship heading: West (left) or East (right).</td>
-  </tr>
-  <tr>
-    <td><b><code>[SHIP]</code></b></td>
-    <td>Ship model: Cruiser-1, Cruiser-2, Cruiser-3, Fishing-1, Fishing-2 or Freighter.</td>
-  </tr>
-</table>
-
-<p>&nbsp;</p>
-
-If you don't want to write a parser to read the labels from the image filenames you can use the `load_samples` function in `/examples/utilities.py`. Alternatively, you may also use the `image_labels.csv` file inside each dataset directory, which contain tables where each row corresponds to an image sample. The columns are as follows. 
+The image labels can be found in the `image_labels.csv` files inside each dataset directory. These CSV files contain tables where each row corresponds to an image sample. The columns structured are as follows.
 
 <table align="center">
   <tr>
@@ -222,12 +175,14 @@ The following is an example of the data contained in the `image_labels.csv` file
     </tr>
 </table>
 
+Alternatively, you can also write a parser script to read the image labels directly from their corresponding filenames. All image filenames are prefixed with a `YYYYMMDD_HHMMSS_` string indicating the date and time of the image creation in YYYY-MM-DD format and HH:MM:SS format, respectively. 
+
 ## Examples
 
-You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find in the `/examples/detectorcnn.py` script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. 
+You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the `DetectorCNN` class in the `/examples/detectorcnn.py` script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights, so sorry about that.
 
-### Tricks and Challenges
+## Tips and Challenges
 
-* You can use the `load_samples` function in `/examples/utilities.py` to populate the input and output tensors. Note that the input images are loaded in greyscale, as I found it was not necessary to use the color channels. 
-* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart for me (as a human). During the dataset construction I found that I had to write numbers 1 and 2 at the bottom of each wooden model to tell them apart. Hence, the dataset may contain be a few image samples of with label Fishing-1 that correspond to Fishing-2, and vice-versa. Nevertheless, the `DetectorCNN` model managed to predict the correct ship model most of the time. 
+* You can use the `load_samples` function in `/examples/utilities.py` to populate the input and output tensors. Note that the input images are loaded in greyscale, as I found it was not necessary to use the color channels.
+* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples labeled as Fishing-1 that correspond to Fishing-2, and vice-versa. Nevertheless, the `DetectorCNN` model managed to predict the correct ship model most of the time.
 * The heading of Cruiser-2 is sometimes hard to tell because of the geometry of the model.
