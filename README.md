@@ -1,6 +1,6 @@
 # find-the-ship
 
-Toy dataset for computer vision education and experimentation
+Toy dataset for machine vision education and experimentation
 
 <table align="center">
   <tr>
@@ -28,10 +28,12 @@ This is a multi-task classification dataset I made for fun in late 2017 using a 
   * **C.** Determine the ship's model.
 
 The data split is as follows:
-* `set-A_train/` contains 1635 image samples for training
-* `set-B_test/` contains 400 image samples for testing (validation)
+* Directory `/set-A_train` contains 1635 image samples for training
+* Directory `/set-B_test` contains 400 image samples for testing (validation)
 
 Needless to say, you may choose any other data split you find useful for your purposes. 
+
+The dataset was created using the `/examples/generate_samples.py` script. The script prompted me to either take an image of a ship with probability of 0.75, or take an empty image with probability of 0.25. When taking an image of a ship, all six ship models were selected with the same probability. The same with the ship row, column and heading. Finally, the image was sent to the training directory with probability of 0.8 or to the test directory with a probability of 0.2. Throughout the dataset construction process I varied the lighting by turning on and off different light bulbs in the room and rotating the board. This was done to enrich the data, which is why you can see the camera supports casting shadows in different directions.
 
 ## Board
 
