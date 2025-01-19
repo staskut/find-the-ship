@@ -191,6 +191,13 @@ Some of the challenges of this dataset:
 * The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples mislabeled as Fishing-1 that actually correspond to Fishing-2, and vice-versa. Nevertheless, my `DetectorCNN` model managed to predict the correct ship model most of the time.
 * The heading of Cruiser-2 is sometimes hard to tell because of the geometry of the model.
 
+## Exercises
+
+Here are some exercise ideas. For each exercise, consider the exercise successfully completed if you can satisfy all four classification tasks with at least 95% accuracy. For the last two exercises, you may want to try using the color channels.
+1. Build any model that gets the job done.
+2. Build the _smallest_ model that gets the job done. Here, by _smallest_ we mean the least number of trainable parameters, but not necessarily the least number of trainable layers.
+3. Build the _shallowest_ model that gets the job done. Here, by _shallowest_ we mean the least number of trainable layers, which is not necessarily the same as the least number of trainable parameters.
+
 ## Contact
 
 For suggestions, comments or questions you can email me at `luis.i.reyes.castro@gmail.com`. In case you download this dataset from Kaggle, you can find the original repository [here](https://github.com/luis-i-reyes-castro/find-the-ship).
