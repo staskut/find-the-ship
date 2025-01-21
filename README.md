@@ -85,7 +85,7 @@ Each non-empty image sample contains exactly one of six possible ship models, fa
 
 ## Image Labels
 
-The image labels can be found in the `image_labels.csv` files inside each dataset directory. These CSV files contain tables where each row corresponds to an image sample. The columns structured are as follows.
+The image labels can be found in the `image_labels.csv` files inside each dataset directory. These CSV files contain tables where each row corresponds to an image sample. The columns are structured are as follows.
 
 <table align="center">
   <tr>
@@ -173,6 +173,13 @@ The following is an example of the data contained in the `image_labels.csv` file
         <td>East</td>
         <td>Cruiser-2</td>
     </tr>
+    <tr>
+        <td>20171210_171430_Location-2B_Heading-East_Ship-Fishing-2.jpg</td>
+        <td>1</td>
+        <td>2B</td>
+        <td>East</td>
+        <td>Fishing-2</td>
+    </tr>
 </table>
 
 Alternatively, you can also write a parser script to read the image labels directly from their corresponding filenames. All image filenames are prefixed with a `YYYYMMDD_HHMMSS_` string indicating the date and time of the image creation in YYYY-MM-DD format and HH:MM:SS format, respectively. 
@@ -203,7 +210,7 @@ Here are some exercise ideas. For each exercise, consider the exercise successfu
 The dataset was constructed using the `/examples/generate_samples.py` script. The script prompted me to either take an image of a ship with probability between 0.75 and 0.86, or take an empty image with probability between 0.14 and 0.25. When taking an image of a ship, all six ship models were selected with the same probability; the same with the ship row, column and heading. Finally, the image was sent to the training directory with probability of 0.80 or to the test directory with a probability of 0.20. Throughout the dataset construction process I varied the lighting by turning on and off different light bulbs in the room and rotating the board. This was done to enrich the data, which is why you can see the camera supports casting shadows in different directions, as well as the board being illuminated with different intensities. The test rig is shown below.
 
 <div align="center">
-  <img src="./README_test-rig.jpg">
+  <img src="./README_test-rig.jpg" width="400">
 </div>
 
 ## Contact
