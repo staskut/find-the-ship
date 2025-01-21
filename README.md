@@ -28,8 +28,8 @@ This is a multi-task classification dataset I made for fun in late 2017 using a 
   * **C.** Determine the ship's model.
 
 The data split is as follows:
-* Directory `/set-A_train` contains 1635 image samples for training
-* Directory `/set-B_test` contains 400 image samples for testing (validation)
+* Directory [`/set-A_train`](./set-A-train) contains 1635 image samples for training
+* Directory [`/set-B_test`](./set-B_test) contains 400 image samples for testing (validation)
 
 Needless to say, you may choose any other data split you find useful for your purposes. 
 
