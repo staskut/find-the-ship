@@ -186,13 +186,13 @@ Alternatively, you can also write a parser script to read the image labels direc
 
 ## Examples
 
-You can find example Python scripts in the `/examples` directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the `DetectorCNN` class in the `/examples/detectorcnn.py` script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights and to report the best model accuracy, so sorry about that.
+You can find example Python scripts in the [`/examples`](https://github.com/luis-i-reyes-castro/find-the-ship/examples) directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the `DetectorCNN` class in the [`/examples/detectorcnn.py`](https://github.com/luis-i-reyes-castro/find-the-ship/examples/detectorcnn.py) script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights and to report the best model accuracy, so sorry about that.
 
 ## Tips and Challenges
 
 A couple tips:
-* You can crop the original images to remove irrelevant areas by throwing away all pixels with rows outside the range 60 to 430 or columns outside the range 40 to 600. You can find these ranges declared as constants in lines 15-18 of the `/examples/dataset_constants.py` script.
-* You do not need to use the color channels to build a decent model, or at least I did not. You can see this in line 120 of the `load_samples` function in `/examples/utilities.py`, where I loaded the images in grayscale using Scipy's `imread` function with `flatten = True`. Be aware that Scipy has deprecated `imread`, which is now part of the `imageio` package.
+* You can crop the original images to remove irrelevant areas by throwing away all pixels with rows outside the range 60 to 430 or columns outside the range 40 to 600. You can find these ranges declared in lines 15-18 of the [`/examples/dataset_constants.py`](https://github.com/luis-i-reyes-castro/find-the-ship/examples/dataset_constants.py) script.
+* You do not need to use the color channels to build a decent model, or at least I did not. You can see this in line 120 of the `load_samples` function in [`/examples/utilities.py`](https://github.com/luis-i-reyes-castro/find-the-ship/examples/utilities.py), where I loaded the images in grayscale using Scipy's `imread` function with `flatten = True`. Be aware that Scipy has deprecated `imread`, which is now part of the `imageio` package.
 
 Some of the challenges of this dataset:
 * The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples mislabeled as Fishing-1 that actually correspond to Fishing-2, and vice-versa. Nevertheless, my `DetectorCNN` model managed to predict the correct ship model most of the time.
@@ -207,7 +207,7 @@ Here are some exercise ideas. For each exercise, consider the exercise successfu
 
 ## Dataset Construction
 
-The dataset was constructed using the `/examples/sample_generator.py` script. The script prompted me to either take an image of a ship with probability between 0.75 and 0.86, or take an empty image with probability between 0.14 and 0.25. When taking an image of a ship, all six ship models were selected with the same probability; the same with the ship row, column and heading. Finally, the image was sent to the training directory with probability of 0.80 or to the test directory with a probability of 0.20. Throughout the dataset construction process I varied the lighting by turning on and off different light bulbs in the room and rotating the board. This was done to enrich the data, which is why you can see the camera supports casting shadows in different directions, as well as the board being illuminated with different intensities. The test rig is shown below.
+The dataset was constructed using the [`/examples/sample_generator.py`](https://github.com/luis-i-reyes-castro/find-the-ship/examples/sample_generator.py) script. The script prompted me to either take an image of a ship with probability between 0.75 and 0.86, or take an empty image with probability between 0.14 and 0.25. When taking an image of a ship, all six ship models were selected with the same probability; the same with the ship row, column and heading. Finally, the image was sent to the training directory with probability of 0.80 or to the test directory with a probability of 0.20. Throughout the dataset construction process I varied the lighting by turning on and off different light bulbs in the room and rotating the board. This was done to enrich the data, which is why you can see the camera supports casting shadows in different directions, as well as the board being illuminated with different intensities. The test rig is shown below.
 
 <div align="center">
   <img src="./README_test-rig.jpg" width="400">
@@ -215,4 +215,4 @@ The dataset was constructed using the `/examples/sample_generator.py` script. Th
 
 ## Contact
 
-For suggestions, comments or questions you can email me at `luis.i.reyes.castro@gmail.com`. In case you download this dataset from Kaggle, you can find the original repository [here](https://github.com/luis-i-reyes-castro/find-the-ship).
+I hope you have as much fun as I did playing with this dataset. For suggestions, comments or questions you can email me at `luis.i.reyes.castro@gmail.com`. In case you download this dataset from Kaggle, you can find the original repository [here](https://github.com/luis-i-reyes-castro/find-the-ship).
