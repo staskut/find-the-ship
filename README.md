@@ -33,14 +33,12 @@ The data split is as follows:
 
 Needless to say, you may choose any other data split you find useful for your purposes. 
 
-The dataset was created using the `/examples/generate_samples.py` script. The script prompted me to either take an image of a ship with probability of 0.75, or take an empty image with probability of 0.25. When taking an image of a ship, all six ship models were selected with the same probability. The same with the ship row, column and heading. Finally, the image was sent to the training directory with probability of 0.8 or to the test directory with a probability of 0.2. Throughout the dataset construction process I varied the lighting by turning on and off different light bulbs in the room and rotating the board. This was done to enrich the data, which is why you can see the camera supports casting shadows in different directions.
-
 ## Board
 
 The board consists of 28 locations, with rows ranging from 1 through 7 and columns ranging from A through D. Each non-empty image sample contains exactly one ship, and the ship may be facing either West (towards the left of the board) or East (towards the right of the board). The following image sample shows an empty board with each location labeled. 
 
 <div align="center">
-  <img src="./README_Board.png" alt="The Board" title="The Board">
+  <img src="./README_Board.png" alt="Board" title="Board">
 </div>
 
 ## Ship Models
@@ -199,6 +197,14 @@ Here are some exercise ideas. For each exercise, consider the exercise successfu
 1. Build any model that gets the job done.
 2. Build the _smallest_ model that gets the job done. Here, by _smallest_ we mean the least number of trainable parameters, but not necessarily the least number of trainable layers.
 3. Build the _shallowest_ model that gets the job done. Here, by _shallowest_ we mean the least number of trainable layers, which is not necessarily the same as the least number of trainable parameters.
+
+## Dataset Construction
+
+The dataset was constructed using the `/examples/generate_samples.py` script. The script prompted me to either take an image of a ship with probability between 0.75 and 0.86, or take an empty image with probability between 0.14 and 0.25. When taking an image of a ship, all six ship models were selected with the same probability; the same with the ship row, column and heading. Finally, the image was sent to the training directory with probability of 0.80 or to the test directory with a probability of 0.20. Throughout the dataset construction process I varied the lighting by turning on and off different light bulbs in the room and rotating the board. This was done to enrich the data, which is why you can see the camera supports casting shadows in different directions, as well as the board being illuminated with different intensities. The test rig is shown below.
+
+<div align="center">
+  <img src="./README_test-rig.jpg">
+</div>
 
 ## Contact
 
