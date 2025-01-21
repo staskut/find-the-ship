@@ -28,8 +28,8 @@ This is a multi-task classification dataset I made for fun in late 2017 using a 
   * **C.** Determine the ship's model.
 
 The data split is as follows:
-* Directory [`/set-A_train`](./set-A-train) contains 1635 image samples for training
-* Directory [`/set-B_test`](./set-B_test) contains 400 image samples for testing (validation)
+* Directory [`/set-A_train`](https://github.com/luis-i-reyes-castro/find-the-ship/tree/main/set-A_train) contains 1635 image samples for training
+* Directory [`/set-B_test`](https://github.com/luis-i-reyes-castro/find-the-ship/tree/main/set-B_test) contains 400 image samples for testing (validation)
 
 Needless to say, you may choose any other data split you find useful for your purposes. 
 
@@ -186,16 +186,16 @@ Alternatively, you can also write a parser script to read the image labels direc
 
 ## Examples
 
-You can find example Python scripts in the [`/examples`](https://github.com/luis-i-reyes-castro/find-the-ship/tree/main/examples) directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the `DetectorCNN` class in the [`/examples/detectorcnn.py`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/detectorcnn.py) script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights and to report the best model accuracy, so sorry about that.
+You can find example Python scripts in the [`/examples`](https://github.com/luis-i-reyes-castro/find-the-ship/tree/main/examples) directory. These scripts were written in late 2017 to early 2018, so they are probably deprecated by now (2025). Back then I used a multi-head Convolutional Neural Network (CNN) written in Keras, which you can find implemented as the [`DetectorCNN`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/detectorcnn.py#L25) class in the [`/examples/detectorcnn.py`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/detectorcnn.py) script. This model has an output head for each task, where the first head outputs the probability that the image is non-empty and the four other heads output probability vectors for the ship model, row, column and heading. Unfortunately, I forgot to upload the model weights and to report the best model accuracy, so sorry about that.
 
 ## Tips and Challenges
 
 A couple tips:
 * You can crop the original images to remove irrelevant areas by throwing away all pixels with rows outside the range 60 to 430 or columns outside the range 40 to 600. You can find these ranges declared in lines 15-18 of the [`/examples/dataset_constants.py`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/dataset_constants.py) script.
-* You do not need to use the color channels to build a decent model, or at least I did not. You can see this in line 120 of the `load_samples` function in [`/examples/utilities.py`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/utilities.py), where I loaded the images in grayscale using Scipy's `imread` function with `flatten = True`. Be aware that Scipy has deprecated `imread`, which is now part of the `imageio` package.
+* You do not need to use the color channels to build a decent model, or at least I did not. You can see this in line 120 of the [`load_samples`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/utilities.py#L94) function in [`/examples/utilities.py`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/utilities.py), where I loaded the images in grayscale using Scipy's `imread` function with `flatten = True`. Be aware that Scipy has deprecated `imread`, which is now part of the [`imageio`](https://imageio.readthedocs.io/en/stable/) package.
 
 Some of the challenges of this dataset:
-* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples mislabeled as Fishing-1 that actually correspond to Fishing-2, and vice-versa. Nevertheless, my `DetectorCNN` model managed to predict the correct ship model most of the time.
+* The Fishing-1 and Fishing-2 ship models are sometimes hard to tell apart. During the dataset construction I found that I had to write numbers at the bottom of the models to tell them apart. Thus, the dataset may contain be a few image samples mislabeled as Fishing-1 that actually correspond to Fishing-2, and vice-versa. Nevertheless, my [`DetectorCNN`](https://github.com/luis-i-reyes-castro/find-the-ship/blob/main/examples/detectorcnn.py#L25) model managed to predict the correct ship model most of the time.
 * The heading of Cruiser-2 is sometimes hard to tell because of the geometry of the model.
 
 ## Exercises
